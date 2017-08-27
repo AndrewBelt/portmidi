@@ -32,7 +32,7 @@ set(CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO "" CACHE INTERNAL "Unused")
 set(CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO "" CACHE INTERNAL "Unused")
 set(CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO "" CACHE INTERNAL "Unused")
 
-set(CMAKE_OSX_ARCHITECTURES i386 ppc x86_64 CACHE STRING "change to needed architecture for a smaller library" FORCE)
+set(CMAKE_OSX_ARCHITECTURES i386 x86_64 CACHE STRING "change to needed architecture for a smaller library" FORCE)
 
 
 include_directories(pm_common porttime)
