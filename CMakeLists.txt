@@ -6,7 +6,6 @@ cmake_minimum_required(VERSION 3.0)
 
 project(portmidi)
 
-
 if(UNIX)
   # allow user to set Release or Debug
   set(CMAKE_BUILD_TYPE Release CACHE STRING

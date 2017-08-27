@@ -68,14 +68,10 @@ if(UNIX)
   endif(APPLE)
 else(UNIX)
   if(WIN32)
-    # /MDd is multithread debug DLL, /MTd is multithread debug
-    # /MD is multithread DLL, /MT is multithread. Change to static:
-    include(../pm_win/static.cmake)
-
     set(WINSRC pmwin pmwinmm)
     prepend_path(LIBSRC ../pm_win/ ${WINSRC})
     list(APPEND LIBSRC ../porttime/ptwinmm)
-    set(PM_NEEDED_LIBS winmm.lib)
+    set(PM_NEEDED_LIBS winmm)
   endif(WIN32)
 endif(UNIX)
 
@@ -92,11 +88,9 @@ set_target_properties(portmidi-dynamic PROPERTIES OUTPUT_NAME "portmidi")
 target_link_libraries(portmidi-dynamic ${PM_NEEDED_LIBS})
 
 
-# install the libraries (Linux and Mac OS X command line)
-if(UNIX)
-  INSTALL(TARGETS portmidi-static portmidi-dynamic
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib)
-  INSTALL(FILES portmidi.h ../porttime/porttime.h
-    DESTINATION include)
-endif(UNIX)
+# install the libraries
+INSTALL(TARGETS portmidi-static portmidi-dynamic
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib)
+INSTALL(FILES portmidi.h ../porttime/porttime.h
+  DESTINATION include)
