@@ -90,6 +90,7 @@ target_link_libraries(portmidi-dynamic ${PM_NEEDED_LIBS})
 
 # install the libraries
 INSTALL(TARGETS portmidi-static portmidi-dynamic
+  RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib)
 INSTALL(FILES portmidi.h ../porttime/porttime.h
